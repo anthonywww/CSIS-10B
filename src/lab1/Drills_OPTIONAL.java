@@ -131,3 +131,16 @@ public class Drills_OPTIONAL {
 	
 	
 }
+
+/*
+Enter a test score: 90
+pass
+pass
+A
+What is your age? 13
+Hooray! A Teen!
+$310.00
+$185.00
+$687.50
+$712.50
+*/

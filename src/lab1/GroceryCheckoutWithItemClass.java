@@ -12,6 +12,7 @@ import java.util.Scanner;
 public class GroceryCheckoutWithItemClass {
 
 	public static void main(String[] args) {
+		
 		Scanner keyboard = new Scanner(System.in);
 		int numItems = 0;
 
@@ -31,7 +32,7 @@ public class GroceryCheckoutWithItemClass {
 			boolean printAverage = false;
 
 			for (int i = numItems - 1; i >= 0; i--) {
-				System.out.printf("%s %.2f\n", items[i].getName(), items[i].getCost());
+				System.out.printf("%s %.2f\n", items[i].getName(), items[i].getPrice());
 				if (items[i].getName().equalsIgnoreCase("peas")) {
 					printAverage = true;
 				}
@@ -60,34 +61,12 @@ public class GroceryCheckoutWithItemClass {
 		double totalCost = 0;
 		
 		for (int i=0; i<items.length; i++) {
-			totalCost += items[i].getCost();
+			totalCost += items[i].getPrice();
 		}
 		
 		return totalCost/items.length;
 	}
 	
-	
-	static class Item {
-		private String name;
-		private double cost;
-		
-		public Item() {
-			
-		}
-		
-		public Item(String name, double cost) {
-			this.name = name;
-			this.cost = cost;
-		}
-		
-		public String getName() {
-			return name;
-		}
-
-		public double getCost() {
-			return cost;
-		}
-	}
 }
 
 /*

@@ -1,5 +1,7 @@
 package lab1;
 
+import java.util.Scanner;
+
 /**
  * class Item represents a Grocery checkout item
  * 
@@ -15,33 +17,48 @@ public class Item {
 	 * No-args Constructor for objects of class Item
 	 */
 	public Item() {
-		name = "----";
-		price = 0.0;
+		this("----", 0.0);
+	}
+	
+	public Item(String name, double price) {
+		this.name = name;
+		this.price = price;
+	}
+	
+	public String getName() {
+		return name;
 	}
 
-	// explicit constructor
+	public void setName(String name) {
+		this.name = name;
+	}
 
-	// getName
+	public double getPrice() {
+		return price;
+	}
 
-	// getPrice
+	public void setPrice(double price) {
+		this.price = price;
+	}
 
-	// setName
-
-	// setPrice
-
+	@Override
+	public String toString() {
+		return name + " $" + price;
+	}
+	
 	public static void main(String[] args) {
-        /***********  test 1 No-arg Constructor, toString **********
+        //***********  test 1 No-arg Constructor, toString **********
         Item one = new Item();
         System.out.println("Item one = " + one);   
         
         //***********  END test 1 ***********************************/
-        /***********  test 2 Explicit Constructor ******************
+        //***********  test 2 Explicit Constructor ******************
 
-        Item two = new Item("peas",2.40);
+        Item two = new Item("peas", 2.40);
         System.out.println("Item two = " + two);   
         
         //***********  END test 2 ***********************************/
-        /***********  test 3 getters and setters ********************
+        //***********  test 3 getters and setters ********************
         
         one.setName("peas and carrots");
         System.out.println("Item one name = " + one.getName());   
@@ -51,7 +68,7 @@ public class Item {
         
         
         //***********  END test 3 ***********************************/
-        /***********  test 4 check if we have peas *******************
+        //***********  test 4 check if we have peas *******************
         // two ways to check if we have peas
                   
         if (one.getName().equals("peas"))  // comparing two Strings
@@ -61,7 +78,7 @@ public class Item {
             System.out.println("Item two: Nice peas there");
 
         //***********  end test 4 *********************************/
-        /***********  test 5 read an Item object from Scanner ******
+        //***********  test 5 read an Item object from Scanner ******
         Scanner keyboard = new Scanner(System.in);
         String name; 
         double price; 

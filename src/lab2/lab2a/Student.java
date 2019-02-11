@@ -54,3 +54,8 @@ public class Student extends Person {
 		System.out.printf("Student s2 = %s\n", s2);
 	}
 }
+
+/*
+Student s1 = Hermes Paris
+Student s2 = Zeus Monassus
+*/

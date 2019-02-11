@@ -153,3 +153,31 @@ public class Lab2A {
 		return new Bag<T>(); // fix
 	}
 }
+
+/*
+**************** Demo 1**************
+John F. Kennedy
+3.45
+carrot
+apple
+**************** Problem 1 **************
+apple, soup, apple, pear, beet, soup
+The bag still has room for more itmes.
+The bag currently has 2 apples.
+The bag does contain beets.
+apple, beet, apple, pear
+The bag currently has: tuna, tuna, tuna, tuna, tuna, tuna, tuna, tuna, tuna, tuna, tuna, tuna, tuna, tuna, tuna, tuna, tuna, tuna, tuna, tuna, tuna, pear, apple, beet, apple
+All items were removed from the bag.
+**************** Problem 2 **************
+Bag of Person's Joe Frank, Lara Allende, Presley Underwood.
+Joe Frank is in csClub: true.
+**************** Problem 3 **************
+Student a = Bella Swinton
+Student b = Bella Swinton
+Student c = Bella Swinton
+Student d = David Swinton
+Student a equals b ? true
+Student a equals c ? true
+Student a equals d ? false
+Student a equals e ? true
+*/

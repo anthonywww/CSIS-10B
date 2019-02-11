@@ -100,3 +100,15 @@ public class Item {
         //***********  end test 5 *********************************/       
 	}
 }
+
+/*
+Item one = ---- $0.0
+Item two = peas $2.4
+Item one name = peas and carrots
+Item two price = 2.59
+Item two: Nice peas there
+Enter an item (name and price): wade 1.00
+Item three = wade $1.0
+Enter a new name and price for Item three: ok 2.0
+Item three now = ok $2.0
+ */

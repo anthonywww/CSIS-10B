@@ -160,22 +160,26 @@ public class Lab2B {
 				numStack.push(Double.parseDouble(symbol + ""));
 			} else {
 				op1 = numStack.pop();
-				op2 = numStack.pop();
 				
-				if (symbol == '+') {
-					solution = op1 + op2;
-				} else if (symbol == '-') {
-					solution = op2 - op1;
-				} else if (symbol == '*') {
-					solution = op1 * op2;
-				} else if (symbol == '/') {
-					solution = op2 / op1;
-				} else if (symbol == '^') {
-					solution = Math.pow(op1, op2);
+				if (symbol == 's') {
+					solution = Math.sqrt(op1);
+				} else {
+					op2 = numStack.pop();
+					
+					if (symbol == '+') {
+						solution = op1 + op2;
+					} else if (symbol == '-') {
+						solution = op2 - op1;
+					} else if (symbol == '*') {
+						solution = op1 * op2;
+					} else if (symbol == '/') {
+						solution = op2 / op1;
+					} else if (symbol == '^') {
+						solution = Math.pow(op2, op1);
+					}
 				}
 				
 				numStack.push(solution);
-				
 			}
 			
 			System.out.printf("Solution: %s\n", numStack.peek());

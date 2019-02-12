@@ -1,4 +1,4 @@
-package lab2.lab2b;
+
 
 public interface StackInterface<T> {
 	/**

@@ -1,4 +1,3 @@
-package lab2.lab2b;
 
 import java.util.Scanner;
 
@@ -39,6 +38,14 @@ public class Lab2B {
 		 * 
 		 * //****************** end 2
 		 **********************/
+
+		System.out.printf("We popped off %s, and now the top of the stack is now %s\n", st.pop(), st.peek());
+		st.push("sneakers");
+
+		while (!st.isEmpty()) {
+			System.out.printf("Now removing: %s\n", st.pop());
+		}
+
 		/******************
 		 * 3 experimenting with Java Wrapper classes ******** // Unfortunately we cannot
 		 * make a Stack of char, or double, or int (primitives)
@@ -70,6 +77,24 @@ public class Lab2B {
 		 * 
 		 * //****************** end 3
 		 **********************/
+
+		Double number = new Double(2.34);
+		double value = 2.34;
+
+		StackInterface<Double> valueStack = new LinkedStack<Double>();
+		number = 3.14;
+		value = 3.14;
+		value = number;
+		number = value;
+
+		System.out.println("number = " + number + ",  value = " + value);
+		System.out.println("number * value = " + (number * value));
+
+		// we can put doubles into our valueStack and it converts them to Doubles
+		valueStack.push(number);
+		valueStack.push(number + value);
+		System.out.println("valueStack = " + valueStack);
+
 		/******************
 		 * 4 Static Methods in Java Wrapper classes ******** // The Java Wrapper classes
 		 * also come with static methods that can // be useful in processing primitive
@@ -87,6 +112,20 @@ public class Lab2B {
 		 * System.out.println(keyValue + " is NOT a digit"); } //****************** end
 		 * 4
 		 **********************/
+		char keyValue;
+
+		System.out.println("Type a letter and I will tell you if it's a digit: ");
+
+		keyValue = keyboard.nextLine().charAt(0);
+
+		if (Character.isDigit(keyValue)) {
+			System.out.println(keyValue + " is a digit, between 0 and 9 ");
+			double dval = Character.getNumericValue(keyValue);
+			System.out.println("The numeric equivalent is " + dval);
+		} else {
+			System.out.println(keyValue + " is NOT a digit");
+		}
+
 		/**************
 		 * 5 Stack RPN Application ************************ // deactivate problems 1-4
 		 * System.out.println("Enter a postfix expression to process: "); String
@@ -103,5 +142,44 @@ public class Lab2B {
 		 * mathExpression.charAt(k); System.out.println(" symbol: " + symbol); }
 		 * //************************end 5
 		 *********************************/
+
+		System.out.print("Enter a postfix expression to process: ");
+		String mathExpression = keyboard.nextLine();
+
+		char symbol; // one character from the math expression
+		double op1, op2; // op1, op2: numeric digits popped off of numStack prior to doing operation
+		double solution = 0; // the input character after being converted to a double
+
+		StackInterface<Double> numStack = new LinkedStack<Double>(); // the numeric Stack for holding intermediate values
+
+		for (int k=0; k<mathExpression.length(); k++) {
+			symbol = mathExpression.charAt(k);
+			System.out.println("symbol: " + symbol);
+			
+			if (Character.isDigit(symbol)) {
+				numStack.push(Double.parseDouble(symbol + ""));
+			} else {
+				op1 = numStack.pop();
+				op2 = numStack.pop();
+				
+				if (symbol == '+') {
+					solution = op1 + op2;
+				} else if (symbol == '-') {
+					solution = op2 - op1;
+				} else if (symbol == '*') {
+					solution = op1 * op2;
+				} else if (symbol == '/') {
+					solution = op2 / op1;
+				} else if (symbol == '^') {
+					solution = Math.pow(op1, op2);
+				}
+				
+				numStack.push(solution);
+				
+			}
+			
+			System.out.printf("Solution: %s\n", numStack.peek());
+		}
+
 	}
 }

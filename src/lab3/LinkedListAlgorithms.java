@@ -166,11 +166,16 @@ public class LinkedListAlgorithms {
 
 	public static IntNode remove(IntNode list, int value) {
 		IntNode nodeBefore = list;
+
 		if (contains(nodeBefore, value)) {
-			while (nodeBefore != null && nodeBefore.next != null && nodeBefore.data != value && nodeBefore.next.data != value) {
-				nodeBefore.next = nodeBefore.next.next;
+			while (nodeBefore != null && nodeBefore.next != null) {
+				if (nodeBefore.next.data == value) {
+					nodeBefore.next = nodeBefore.next.next;
+				}
+				nodeBefore = nodeBefore.next;
 			}
 		}
+
 		return list;
 	}
 

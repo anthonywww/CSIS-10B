@@ -7,8 +7,8 @@ package lab3;
  * @version (a version number or a date)
  */
 public class ArrayAlgorithms {
+	
 	public static void main(String[] args) {
-		System.out.println("\f");
 		int arr1[] = { 24, 18, 12, 3, 7 };
 		int arr2[] = { 31, -9, 5, 21, 4, 0, 8, -7 };
 		int arr3[] = { 5, 5, 0, 1 };

@@ -200,11 +200,6 @@ public class LinkedListAlgorithms {
 		}
 	}
 	
-	private static final void shift(IntNode node, int amount) {
-		IntNode newNode = node;
-		
-		
-	}
 
 	public static String toString(IntNode list) {
 		IntNode p = null;

@@ -8,8 +8,8 @@ import java.util.Scanner;
  * @version (a version number or a date)
  */
 public class Lab2B {
+	
 	public static void main(String[] args) {
-
 		Scanner keyboard = new Scanner(System.in);
 		// ****************** 1 make a few stacks, using interface, Array and
 		// LinkedStack
@@ -78,6 +78,7 @@ public class Lab2B {
 		 * //****************** end 3
 		 **********************/
 
+		@SuppressWarnings("deprecation")
 		Double number = new Double(2.34);
 		double value = 2.34;
 
@@ -184,6 +185,29 @@ public class Lab2B {
 			
 			System.out.printf("Solution: %s\n", numStack.peek());
 		}
-
 	}
 }
+
+/*
+1 Empty stack ? true
+1 Stack st = Current stack is: [null]
+2 Stack st = Current stack is: [ball, cap, mitt, cleats]
+We popped off cleats, and now the top of the stack is now mitt
+Now removing: sneakers
+Now removing: mitt
+Now removing: cap
+Now removing: ball
+number = 3.14,  value = 3.14
+number * value = 9.8596
+valueStack = Current stack is: [3.14, 6.28]
+Type a letter and I will tell you if it's a digit: 
+a
+a is NOT a digit
+Enter a postfix expression to process: 23+
+symbol: 2
+Solution: 2.0
+symbol: 3
+Solution: 3.0
+symbol: +
+Solution: 5.0
+*/

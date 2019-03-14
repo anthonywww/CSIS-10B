@@ -1,0 +1,1 @@
+package lab13.GraphPackage;/**   An interface of methods that create, manipulate, and process a graph.      @author Frank M. Carrano   @version 3.0*/public interface GraphInterface<T> extends BasicGraphInterface<T>,                                            GraphAlgorithmsInterface<T>{} // end GraphInterface

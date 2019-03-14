@@ -11,9 +11,9 @@ public class Lab5a {
         // declare 3 bags
         System.out.println("**************** Problem 0 **************\n");
         
-        ArrayBag duffleBag = new ArrayBag();
-        ArrayBag groceryBag = new ArrayBag(10);
-        ArrayBag tinyBag = new ArrayBag(0); // this bag can hold zero items
+        ArrayBag<String> duffleBag = new ArrayBag<String>();
+        ArrayBag<String> groceryBag = new ArrayBag<String>(10);
+        ArrayBag<String> tinyBag = new ArrayBag<String>(0); // this bag can hold zero items
         
         System.out.println("   size of duffleBag = " + duffleBag.getCurrentSize());        
         System.out.println("   is duffleBag empty? " + duffleBag.isEmpty());
@@ -128,8 +128,7 @@ public class Lab5a {
         System.out.println("size of duffleBag = " + duffleBag.getCurrentSize());        
         System.out.println("contents of duffleBag: " + duffleBag);        
         
-        System.out.println("Follow the steps in Problem 7 to turn your ArrayBag into a\n" +
-                           " class of generic type T");
+        System.out.println("Follow the steps in Problem 7 to turn your ArrayBag into a\n" + " class of generic type T");
         System.out.println("Then in step one add <String> after ArrayBag 6 times");
         System.out.println("Recompile...you should see a compiler error preventing the previous add");
         

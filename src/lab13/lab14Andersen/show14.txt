@@ -1,0 +1,150 @@
+//--------------------------------------------------------------------
+//
+//  Laboratory 14                                         show14.txt
+//
+//  Adjacency matrix implementations of the showStructure operation
+//  for the Weighted Graph ADT
+//
+//--------------------------------------------------------------------
+
+    public void showStructure ( )
+    // Outputs a graph's vertex list, and adjacency matrix.
+    // This operation is intended for testing/debugging purposes only.
+    {
+        int wt,         // Edge weight
+            row, col;   // Loop counters
+
+        if ( size == 0 )
+        {
+            System.out.println("Empty graph");
+            return;
+        }
+
+        System.out.println( );
+        System.out.println("Vertex list : ");
+        for ( row = 0 ; row < size ; row++ )
+            System.out.println(row + "\t" + vertexList[row].getLabel( ));
+
+        System.out.println( );
+        System.out.println("Edge matrix : ");
+        System.out.print("\t");
+        for ( col = 0 ; col < size ; col++ )
+            System.out.print(col + "\t");
+        System.out.println( );
+        for ( row = 0 ; row < size ; row++ )
+        {
+            System.out.print(row + "\t");
+            for ( col = 0 ; col < size ; col++ )
+            {
+                wt = getEdge(row, col);
+                if ( wt == INFINITE_EDGE_WT )
+                    System.out.print("- \t");
+                else
+                    System.out.print(wt + "\t");
+            }
+            System.out.println( );
+        }
+        
+    }  // showStructure
+
+    public void showStructure ( )
+    // Outputs a graph's vertex list, adjacency matrix, and path matrix.
+    // This operation is intended for testing/debugging purposes only.
+    {
+        int wt,         // Edge weight
+            row, col;   // Loop counters
+
+        if ( size == 0 )
+        {
+            System.out.println("Empty graph");
+            return;
+        }
+
+        System.out.println( );
+        System.out.println("Vertex list : ");
+        for ( row = 0 ; row < size ; row++ )
+            System.out.println(row + "\t" + vertexList[row].getLabel( ));
+
+        System.out.println( );
+        System.out.println("Edge matrix : ");
+        System.out.print("\t");
+        for ( col = 0 ; col < size ; col++ )
+            System.out.print(col + "\t");
+        System.out.println( );
+        for ( row = 0 ; row < size ; row++ )
+        {
+            System.out.print(row + "\t");
+            for ( col = 0 ; col < size ; col++ )
+            {
+                wt = getEdge(row, col);
+                if ( wt == INFINITE_EDGE_WT )
+                    System.out.print("- \t");
+                else
+                    System.out.print(wt + "\t");
+            }
+            System.out.println( );
+        }
+
+        System.out.println( );
+        System.out.println("Path matrix : ");
+        System.out.print("\t");
+        for ( col = 0 ; col < size ; col++ )
+            System.out.print(col + "\t");
+        System.out.println( );
+        for ( row = 0 ; row < size ; row++ )
+        {
+            System.out.print(row + "\t");
+            for ( col = 0 ; col < size ; col++ )
+            {
+                wt = getPath(row, col);
+                if ( wt == INFINITE_EDGE_WT )
+                    System.out.print("- \t");
+                else
+                    System.out.print(wt + "\t");
+            }
+            System.out.println( );
+        }
+        
+    }  // showStructure
+
+    public void showStructure ( )
+    // Outputs a graph's vertex list (w/ color) and adjacency matrix.
+    // This operation is intended for testing/debugging purposes only.
+    {
+        int wt,         // Edge weight
+            row, col;   // Loop counters
+
+        if ( size == 0 )
+        {
+            System.out.println("Empty graph");
+            return;
+        }
+
+        System.out.println( );
+        System.out.println("Vertex list : ");
+        for ( row = 0 ; row < size ; row++ )
+            System.out.println(row + "\t" + vertexList[row].getLabel( )
+                                    + vertexList[row].getColor( ));
+
+        System.out.println( );
+        System.out.println("Edge matrix : ");
+        System.out.print("\t");
+        for ( col = 0 ; col < size ; col++ )
+            System.out.print(col + "\t");
+        System.out.println( );
+        for ( row = 0 ; row < size ; row++ )
+        {
+            System.out.print(row + "\t");
+            for ( col = 0 ; col < size ; col++ )
+            {
+                wt = getEdge(row, col);
+                if ( wt == INFINITE_EDGE_WT )
+                    System.out.print("- \t");
+                else
+                    System.out.print(wt + "\t");
+            }
+            System.out.println( );
+        }
+        
+    }  // showStructure
+

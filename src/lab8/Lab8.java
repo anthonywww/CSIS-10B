@@ -11,8 +11,8 @@ import java.util.Scanner;
 public class Lab8 {
 	
 	public static int board[][] = {
-			{ 6, 4, 7, 4, 8, 3, 6, 7 },
-			{ 9, 1, 4, 7, 3, 6, 8, 6 },
+			{ 6, 4, 7, 4, 8, 3, 6, 7 }, // maxValue(board, 1, 3) = 15
+			{ 9, 1, 4, 7, 3, 6, 8, 6 }, // maxValue(board, 2, 6) = 16
 			{ 4, 8, 1, 9, 7, 9, 2, 3 },
 			{ 1, 8, 6, 6, 8, 4, 8, 3 },
 			{ 7, 3, 7, 4, 4, 1, 5, 9 },
@@ -117,13 +117,37 @@ public class Lab8 {
 		// to find the max value possible from moving from the bottom to the top
 		// row of the checkerboard defined above as board[][]
 
+		System.err.println("--------------------");
+		// Start at bottom (4)
+		maxValue(7, 1);
+		
 		// ************************ End Problem 7 ***************************/
 	}
 	
+//	{ 6, 4, 7, 4, 8, 3, 6, 7 }, // maxValue(board, 1, 3) = 15
+//	{ 9, 1, 4, 7, 3, 6, 8, 6 }, // maxValue(board, 2, 6) = 16
+//	{ 4, 8, 1, 9, 7, 9, 2, 3 },
+//	{ 1, 8, 6, 6, 8, 4, 8, 3 },
+//	{ 7, 3, 7, 4, 4, 1, 5, 9 },
+//	{ 1, 6, 3, 2, 1, 4, 3, 3 },
+//	{ 5, 3, 8, 4, 2, 6, 7, 9 },
+//	{ 6, 4, 3, 8, 7, 1, 2, 4 }
 	
 	private static int maxValue(int row, int column) {
 		// FIXME: read lab paper
+		System.out.println(row + ", " + column);
 		
+		if (board.length > row && row >= 0) {
+			if (board[row].length > column && column >= 0) {
+				//board[row][column-1]
+				int left = maxValue(row-1, column-1);
+				int right = maxValue(row+1, column-1);
+				System.out.printf("[%d, %d] left: %d, right %d, next dir = %s", row, column, left, right, (left > right ? "left" : "right"));
+				return (left > right ? left : right);
+			}
+		}
+		
+		return 0;
 	}
 	
 

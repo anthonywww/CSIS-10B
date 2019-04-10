@@ -6,7 +6,6 @@ package lab5;
 public class Lab5a {
 	
 	public static void main(String[] args) {
-		
         //********** Problem 0 Test constructors, isEmpty, isFull, getCurrentSize, toString *************
         // declare 3 bags
         System.out.println("**************** Problem 0 **************\n");
@@ -154,7 +153,5 @@ public class Lab5a {
             System.out.println(stringContents[k].toUpperCase());        
         
         //********** End Problem 8  *****************************************************/   
-        
-        
     }
 }

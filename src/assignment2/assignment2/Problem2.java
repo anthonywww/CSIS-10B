@@ -1,7 +1,6 @@
 package assignment2.assignment2;
 import java.util.Scanner;
 
-import assignment2.assignment2.ArrayStack;
 import lab13.ADTPackage.LinkedQueue;
 
 /**
@@ -29,6 +28,7 @@ public class Problem2 {
 			}
 		}
 		
+		keyboard.close();
 		System.out.println("Is isPalindrome: " + isPalindrome(stack, queue));
 	}
 	
@@ -42,3 +42,10 @@ public class Problem2 {
 	}
 	
 }
+
+/*
+Enter word >> racecar
+Is isPalindrome: true
+Enter word >> tom
+Is isPalindrome: false
+*/

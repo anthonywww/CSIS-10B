@@ -72,7 +72,7 @@ public class Lab5b {
         
         System.out.println("Is List empty? " + myList.isEmpty());
         //*************************** END Problem 2 ***********************************/
-        /*************************** Problem 3 remove, replace **************** 
+        //*************************** Problem 3 remove, replace **************** 
         System.out.println("\n\n****************  Problem 3 *********************\n");
             
         System.out.println("\n-------------------------\n");
@@ -115,7 +115,7 @@ public class Lab5b {
         System.out.println("List contains 4  returns : " + myList.contains("4"));
         System.out.println("List contains 12 returns : " + myList.contains("12"));
         //*************************** END Problem 3 ***********************************/
-        /*************************** Problem 4 getPosition, moveToEnd ********************** 
+        //*************************** Problem 4 getPosition, moveToEnd ********************** 
         System.out.println("\n\n****************  Problem 4 *********************\n");
         
         System.out.println("The position of 92 is " + myList.getPosition("92") + "(should be 1)");         

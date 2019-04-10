@@ -36,7 +36,6 @@ public class ArrayList<T> {
 		mySize++;
 	}
 
-	// FIXME: To complete
 	public boolean add(int newPosition, T newEntry) {
 		if (newPosition > 0) {
 			ensureCapacity();
@@ -52,16 +51,31 @@ public class ArrayList<T> {
 	}
 
 	public T remove(int givenPosition) {
-		return null;
+		if (givenPosition > mySize) {
+			return null;
+		}
+		T o = myArray[givenPosition];
+		for (int i=givenPosition;i<mySize;i++) {
+			myArray[givenPosition] = myArray[givenPosition+1];
+		}
+		mySize -= 1;
+		return o;
 	}
 
 	public void clear() {
-		for (int k = 0; k < mySize; k++)
+		for (int k = 0; k < mySize; k++) {
 			myArray[k] = null;
+		}
 		mySize = 0;
 	}
 
 	public boolean replace(int givenPosition, T newEntry) {
+		if (givenPosition > mySize) {
+			return false;
+		}
+		
+		myArray[givenPosition] = newEntry;
+		
 		return true;
 	}
 
@@ -101,6 +115,25 @@ public class ArrayList<T> {
 		return result;
 	}
 
+	public int getPosition(Object obj) {
+		for (int i=0;i<mySize; i++) {
+			if (myArray[i].equals(obj)) {
+				return i;
+			}
+		}
+		return -1;
+	}
+	
+	public void moveToEnd(int position) {
+		if (position > mySize) {
+			return;
+		}
+		Object o = myArray[position];
+		for (int i=position-1;i<mySize;i++) {
+			
+		}
+	}
+	
 	/**
 	 * Converts all the data in the bag into one big String
 	 * 

@@ -1,8 +1,6 @@
 package assignment2.assignment2;
 
-import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileReader;
 import java.io.IOException;
 import java.util.Scanner;
 
@@ -31,7 +29,6 @@ public class Problem3 {
 		double cutoff = keyboard.nextDouble();
 		keyboard.close();
 		
-		System.out.println(students.getLength());
 		
 		for (int i=1; i<students.getLength()+1; i++) {
 			Student s = students.getEntry(i);
@@ -45,7 +42,9 @@ public class Problem3 {
 			System.out.println(students.getEntry(i));
 		}
 		
-		System.out.println(students.getLength());
 	}
-	
 }
+/*
+Enter a cutoff GPA >> 4.0
+Leanna Gavin, ID: 105693 - GPA: 4.0
+*/

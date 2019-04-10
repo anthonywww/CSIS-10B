@@ -71,8 +71,8 @@ public class Lab8 {
 		// **************** Problem 1 Write the recursive method used below *****
 		// Do not change this method call
 
-		int n = validInput(1, 10);
-		System.out.println("You entered " + n);
+		//int n = validInput(1, 10);
+		//System.out.println("You entered " + n);
 
 		// ************************ End Problem 1 ****************************/
 		// ******* Problem 2 Implement displayRowOfCharacters above main ******
@@ -117,9 +117,11 @@ public class Lab8 {
 		// to find the max value possible from moving from the bottom to the top
 		// row of the checkerboard defined above as board[][]
 
-		System.err.println("--------------------");
+		System.out.println("--------------------");
 		// Start at bottom (4)
-		maxValue(7, 1);
+		printRow(0);
+		System.out.println();
+		maxValue(1, 3);
 		
 		// ************************ End Problem 7 ***************************/
 	}
@@ -134,22 +136,43 @@ public class Lab8 {
 //	{ 6, 4, 3, 8, 7, 1, 2, 4 }
 	
 	private static int maxValue(int row, int column) {
-		// FIXME: read lab paper
-		System.out.println(row + ", " + column);
 		
-		if (board.length > row && row >= 0) {
-			if (board[row].length > column && column >= 0) {
-				//board[row][column-1]
-				int left = maxValue(row-1, column-1);
-				int right = maxValue(row+1, column-1);
-				System.out.printf("[%d, %d] left: %d, right %d, next dir = %s", row, column, left, right, (left > right ? "left" : "right"));
-				return (left > right ? left : right);
-			}
-		}
 		
-		return 0;
+		
+//		// FIXME: read lab paper
+//		//board[row][column-1]
+//		
+//		if (row < board.length && row >= 0) {
+//			if (board[row].length > column && column >= 0) {
+//				if (board[row][column] == 0) {
+//					return 0;
+//				}
+//				int left = maxValue(row-1, column-1);
+//				int right = maxValue(row+1, column-1);
+//				System.out.printf("[%d, %d] left: %d, right %d, next dir = %s\n", row, column, left, right, (left > right ? "left" : "right"));
+//				return (left > right ? left : right) + maxValue(row, column);
+//			}
+//		}
+//		
+//		return 0;
 	}
 	
+	
+	private static void printRow(int row) {
+		if (row < 0 || row > board.length) {
+			return;
+		}
+		StringBuilder sb = new StringBuilder();
+		sb.append('[');
+		for (int i=0; i<board[row].length; i++) {
+			sb.append(board[row][i]);
+			if (i<board[row].length-1) {
+				sb.append(',').append(' ');
+			}
+		}
+		sb.append(']');
+		System.out.println(sb.toString());
+	}
 
 	private static int factorial(int n) {
 		if (n <= 1) {

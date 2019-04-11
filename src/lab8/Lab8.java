@@ -119,16 +119,16 @@ public class Lab8 {
 
 		System.out.println("--------------------");
 		// Start at bottom (4)
-		printRow(0);
+		//printRow(0);
 		System.out.println();
-		maxValue(1, 3);
+		System.out.println("Max: " + maxValue(7, 7));
 		
 		// ************************ End Problem 7 ***************************/
 	}
 	
 //	{ 6, 4, 7, 4, 8, 3, 6, 7 }, // maxValue(board, 1, 3) = 15
 //	{ 9, 1, 4, 7, 3, 6, 8, 6 }, // maxValue(board, 2, 6) = 16
-//	{ 4, 8, 1, 9, 7, 9, 2, 3 },
+//	{ 4, 8, 1, 9, 7, 9, 2, 3 }, 
 //	{ 1, 8, 6, 6, 8, 4, 8, 3 },
 //	{ 7, 3, 7, 4, 4, 1, 5, 9 },
 //	{ 1, 6, 3, 2, 1, 4, 3, 3 },
@@ -136,25 +136,34 @@ public class Lab8 {
 //	{ 6, 4, 3, 8, 7, 1, 2, 4 }
 	
 	private static int maxValue(int row, int column) {
-		
-		
-		
-//		// FIXME: read lab paper
-//		//board[row][column-1]
-//		
-//		if (row < board.length && row >= 0) {
-//			if (board[row].length > column && column >= 0) {
-//				if (board[row][column] == 0) {
-//					return 0;
-//				}
-//				int left = maxValue(row-1, column-1);
-//				int right = maxValue(row+1, column-1);
-//				System.out.printf("[%d, %d] left: %d, right %d, next dir = %s\n", row, column, left, right, (left > right ? "left" : "right"));
-//				return (left > right ? left : right) + maxValue(row, column);
-//			}
-//		}
-//		
-//		return 0;
+		if (row < board.length && row >= 0) {
+			if (column < board[row].length && column >= 0) {
+				if (board[row][column] == 0) {
+					return 0;
+				}
+				int current = board[row][column];
+				int left = 0;
+				int right = 0;
+				if (row-1 < 0) {
+					return current;
+				}
+				if (column-1 >= 0) {
+					left = board[row-1][column-1];
+				}
+				if (column+1 < board[row].length) {
+					right = board[row-1][column+1];
+				}
+				if (left == 0 && right == 0) {
+					return current;
+				}
+				System.out.printf("[%d, %d] current: %d left: %d, right: %d\n", row, column, current, left, right);
+				int leftTotal = current + maxValue(row-1, column-1);
+				int rightTotal = current + maxValue(row-1, column+1);
+				int total = (leftTotal > rightTotal ? leftTotal : rightTotal);
+				return total;
+			}
+		}
+		return 0;
 	}
 	
 	

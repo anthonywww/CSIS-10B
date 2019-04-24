@@ -157,18 +157,18 @@ public class Lab9Driver {
 		
 		// HINT code this and put in a loop
 		// there ARE some tricks and surprises along the way!!
-		int val1 = it.next();
-		int val2 = it.next();
+		//int val1 = it.next();
+		//int val2 = it.next();
 		
 		
 		// get val1a = first digit of val1 (divide by 10)
 		// val1b = second digit (mod % 10)
 		// etc
 
-		 if ( some condition is true )
-			it.remove();
-		 	it.previous();
-		 	it.remove();
+		//if ( some condition is true )
+			//it.remove();
+			//it.previous();
+			//it.remove();
         
         /********************  end *****************************************/
               

@@ -31,6 +31,9 @@ public class CharIterator implements Iterator<Character> {
 	 */
 	@Override
 	public boolean hasNext() {
+		if (cursor+1 < theString.length()) {
+			return true;
+		}
 		return false;
 	}
 
@@ -45,7 +48,10 @@ public class CharIterator implements Iterator<Character> {
 	@Override
 	public Character next() {
 		calledNext = true;
-		return theString.charAt(cursor++);
+		if (!hasNext()) {
+			throw new NoSuchElementException();
+		}
+		return theString.charAt(++cursor);
 	}
 
 	/**
@@ -63,10 +69,12 @@ public class CharIterator implements Iterator<Character> {
 	 */
 	@Override
 	public void remove() {
-		if (calledNext) {
+		if (!calledNext) {
 			throw new IllegalStateException();
 		}
+		theString.deleteCharAt(cursor--);
 		
+		calledNext = false;
 	}
 
 }

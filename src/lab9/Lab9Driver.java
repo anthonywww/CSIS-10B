@@ -1,7 +1,9 @@
 package lab9;
 
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.ListIterator;
+import java.util.Random;
 import java.util.Vector;
 
 /**
@@ -91,70 +93,85 @@ public class Lab9Driver {
 		 * /******************** end
 		 *****************************************/
 		StringBuilder test = new StringBuilder("hellooooo wooorld");
-		test.deleteCharAt(3);
+		//test.deleteCharAt(3);
 		System.out.println(test);
 		
 		// a:
 		CharIterator ci = new CharIterator(test);
 		while(ci.hasNext()) {
 			System.out.print(ci.next());
+			System.out.println(" hasNext(): " + ci.hasNext());
 		}
 		
+		System.out.println();
 		
 		// b: remove all 'o's in test.
 		CharIterator ci2 = new CharIterator(test);
 		while(ci2.hasNext()) {
-			char s = ci2.next();
-			if (s == 'o') {
+			char c = ci2.next();
+			System.out.print(c);
+			if (c == 'o') {
 				ci2.remove();
 			}
 		}
 		
-		
-		
-		
+		System.out.println();
 		System.out.println("now test = " + test);
 		
 		
 		
-        /********  3 Do the Solitaire Game Program here *******************
+        //********  3 Do the Solitaire Game Program here *******************
         
-        // define the ArrayList to hold the numbers
-        ArrayList<Integer> list = new ArrayList<Integer>();
-        // this test pattern should get a win: 34 10 82 89 12 84 23 53
-        list.add(34);list.add(10);list.add(82);list.add(89);list.add(12);list.add(84);list.add(23);list.add(53);
-        
-        // test setup for dealing with numbers
-        Random rand = new Random();
-        for (int k=0; k<20; k++)
-        {   
-            int value = 10 + rand.nextInt(90);
-            System.out.println("Test random gen: " + value);
-            System.out.println("1st digit: " + value/10);
-            System.out.println("2nd digit: " + value%10);            
-        }
-                
-        // print your ArrayList after it is intialized with values
-        
-        // define the ListIterator to iterate over the ArrayList
-        
-        // process the list using your ListIterator, according to the handout
+		// define the ArrayList to hold the numbers
+		ArrayList<Integer> list1 = new ArrayList<Integer>();
+		// this test pattern should get a win: 34 10 82 89 12 84 23 53
+		list1.add(34);
+		list1.add(10);
+		list1.add(82);
+		list1.add(89);
+		list1.add(12);
+		list1.add(84);
+		list1.add(23);
+		list1.add(53);
 
-        // HINT  code this and put in a loop
-        //   there ARE some tricks and surprises along the way!!
-           int val1 = it.next();
-           int val2 = it.next();
-           // get val1a = first digit of val1 (divide by 10)
-           //     val1b = second digit (mod % 10)
-           // etc
-        
-           if ( some condition is true )
-              it.remove();
-              it.previous();
-              it.remove();            
-                    
+		// test setup for dealing with numbers
+		Random rand = new Random();
+		for (int k = 0; k < 20; k++) {
+			int value = 10 + rand.nextInt(90);
+			System.out.println("Test random gen: " + value);
+			System.out.println("1st digit: " + value / 10);
+			System.out.println("2nd digit: " + value % 10);
+		}
+
+		// print your ArrayList after it is intialized with values
+		
+		
+		
+		// define the ListIterator to iterate over the ArrayList
+		
+		
+		
+		// process the list using your ListIterator, according to the handout
+		
+		
+		
+		// HINT code this and put in a loop
+		// there ARE some tricks and surprises along the way!!
+		int val1 = it.next();
+		int val2 = it.next();
+		
+		
+		// get val1a = first digit of val1 (divide by 10)
+		// val1b = second digit (mod % 10)
+		// etc
+
+		 if ( some condition is true )
+			it.remove();
+		 	it.previous();
+		 	it.remove();
         
         /********************  end *****************************************/
+              
         /********  4 Extend a SortedAList from the AList class, test here *************
         System.out.println("Testing add() ");
         SortedAList<String> myList = new SortedAList<String>();

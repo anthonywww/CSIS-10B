@@ -62,13 +62,12 @@ public class PacketReader {
 		
 		// Close the file.
 		inputFile.close();
+		keyboard.close();
 		
 		// Display the packet show packet-by-packet.
 		for(Packet p : message) {
 			p.display();
 		}
-		
-		keyboard.close();
 	}
 
 }

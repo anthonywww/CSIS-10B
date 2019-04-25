@@ -138,17 +138,18 @@ public class Lab9Driver {
 		Random rand = new Random();
 		for (int k = 0; k < 20; k++) {
 			int value = 10 + rand.nextInt(90);
+			//list1.add(value);
 			System.out.println("Test random gen: " + value);
 			System.out.println("1st digit: " + value / 10);
 			System.out.println("2nd digit: " + value % 10);
 		}
 
-		// print your ArrayList after it is intialized with values
-		
+		// print your ArrayList after it is initialized with values
+		System.out.println(list1);
 		
 		
 		// define the ListIterator to iterate over the ArrayList
-		
+		ListIterator<Integer> li = list1.listIterator();
 		
 		
 		// process the list using your ListIterator, according to the handout
@@ -157,19 +158,22 @@ public class Lab9Driver {
 		
 		// HINT code this and put in a loop
 		// there ARE some tricks and surprises along the way!!
-		//int val1 = it.next();
-		//int val2 = it.next();
+		int val1 = li.next();
+		int val2 = li.next();
 		
 		
 		// get val1a = first digit of val1 (divide by 10)
 		// val1b = second digit (mod % 10)
 		// etc
-
-		//if ( some condition is true )
-			//it.remove();
-			//it.previous();
-			//it.remove();
-        
+		
+		if (val1/10 == val2/10 || val1%10 == val2%10) {
+			li.remove();
+			li.previous();
+			li.remove();
+			System.out.println(list1);
+		}
+		
+		
         /********************  end *****************************************/
               
         /********  4 Extend a SortedAList from the AList class, test here *************

@@ -7,6 +7,6 @@
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="classes"/>
+	<classpathentry exported="true" kind="lib" path="classes"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

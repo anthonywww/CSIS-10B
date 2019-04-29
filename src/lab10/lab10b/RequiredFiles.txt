@@ -1,0 +1,6 @@
+DictionaryInterface.javaDriver.javaHashedDictionary.java Name.java (use the enclosed version since it contains hashCode)
+
+or
+
+DictionaryInterface.javaDriver2.javaHashedDictionary2.java Name.java (use the enclosed version since it contains hashCode)NB: HashedDictionary uses the methods locate and probe.
+    HashedDictionary2 uses only probe.

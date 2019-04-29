@@ -1,6 +1,7 @@
 package lab9;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Iterator;
 import java.util.ListIterator;
 import java.util.Random;
@@ -176,9 +177,9 @@ public class Lab9Driver {
 		
         /********************  end *****************************************/
               
-        /********  4 Extend a SortedAList from the AList class, test here *************
+        //********  4 Extend a SortedAList from the AList class, test here *************
         System.out.println("Testing add() ");
-        SortedAList<String> myList = new SortedAList<String>();
+        SortedArrayList<String> myList = new SortedArrayList<String>();
         
         myList.add("45");
         myList.add("15");
@@ -213,22 +214,35 @@ public class Lab9Driver {
         /********************  end *****************************************/  
         //********  5 Solve the PacketReader problem in the PacketReader class *************
         //  then move on to number 6
-
-        /********************  end *****************************************/  
-        /********  6 Solve the SearchRange problem. Write code or a method
+        
+        // Ok Tom.
+        
+        /********************  end *****************************************/
+        
+        
+        
+        
+        //********  6 Solve the SearchRange problem. Write code or a method
         //  that meets the description in the lab9 handout. The method could 
         //  print the range or return an array of the min and max values in range
 
-        int [] data = {5,8,10,13,15,20,22,26};
+        int [] data = {5, 8, 10, 13, 15, 20, 22, 26};
         int [] targets = {8, 2, 9, 17};
+        
+        Arrays.sort(targets);
+        
         
         //  use  Arrays.binarySearch  to find the min and max cell numbers that 
         //   contain the range of values stored in target
         
-        /********************  end *****************************************/  
-        /******** 7 Add an iterator class to the LList class. Test
-                               it using the code in step 1 */
-
-
+        /********************  end *****************************************/
+        
+        
+        
+        
+        
+        /******** 7 Add an iterator class to the LList class. Test it using the code in step 1 */
+        
+        
 	}
 }

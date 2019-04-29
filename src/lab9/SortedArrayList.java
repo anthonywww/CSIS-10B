@@ -48,6 +48,10 @@ public class SortedArrayList<T extends Comparable<? super T>> extends ArrayList<
 			return false;
 		}
 		
+		if (!this.contains(o)) {
+			return false;
+		}
+		
 		int index = Arrays.binarySearch(this.toArray(), o);
 		
 		if (index >= 0) {
@@ -56,18 +60,17 @@ public class SortedArrayList<T extends Comparable<? super T>> extends ArrayList<
 			this.remove(-index);
 		}
 		
-		return false;
+		return true;
 	}
 	
-	public static void main(String[] args) {
-		SortedArrayList<Integer> slist = new SortedArrayList<Integer>();
-		final int[] data = {8, 1, 15, 2, 7, 5, 9, 10, 6, 3};
-		
-		for (int i : data) {
-			slist.add(i);
+	public int getPosition(T entry) {
+		for (int i=0; i<super.size(); i++) {
+			if (super.get(i).equals(entry)) {
+				return i;
+			}
 		}
 		
-		System.out.println(slist.toString());
+		return -1;
 	}
 	
 }

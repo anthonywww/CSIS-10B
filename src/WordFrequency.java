@@ -26,7 +26,7 @@ public class WordFrequency {
 				nextWord = nextWord.toLowerCase();
 				
 				if (!wordTable.contains(nextWord)) {
-					wordTable.add(nextWord, 0);
+					wordTable.add(nextWord, 1);
 				}
 				
 				// assign to Integer frequency the frequency count of nextWord retrieved from

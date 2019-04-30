@@ -50,6 +50,12 @@ public class WordFrequency {
 			System.out.println("File not found: " + e.getMessage());
 		}
 
+		
+		SortType st = SortType.ASCENDING_KEYS;
+		EZ_SortedDictionary<String, Integer> sortedDictionary = new EZ_SortedDictionary<String, Integer>(SortType.ASCENDING_KEYS);
+		
+		
+		
 		// print the word frequency counts
 		Iterator<String> keys = wordTable.getKeyIterator();
 		Entry[] entries = new Entry[wordTable.getSize()];

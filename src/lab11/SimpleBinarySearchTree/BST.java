@@ -168,6 +168,7 @@ public class BST {
 	}
 	
 	// Must be post-order
+	// FIXME: one higher than should be
 	private int heightAux(int count, TreeNode subTree) {
 		if (subTree == null) {
 			return 0;
@@ -178,21 +179,29 @@ public class BST {
 	}
 	
 	public BST copy() {
-		return copyAux(root);
+		BST copy = new BST();
+		copyAux(copy, root);
+		return copy;
 	}
 	
 	// Must be pre-order
-	public BST copyAux(TreeNode subTree) {
+	// FIXME: not copying properly
+	public BST copyAux(BST copy, TreeNode subTree) {
 		if (subTree == null) {
 			return null;
 		}
 		
 		TreeNode newNode = new TreeNode(new String(subTree.data));
 		// using String copy constructor to duplicate a string
+		copy.add(newNode.data);
+		copy.add(subTree.left.data);
+		copy.add(subTree.right.data);
 		
+		// Remove this
+		copy = copyAux(copy, newNode);
 		
-		
-		return null;
+		//return copy;
+		return copy;
 	}
 	
 	public Iterator<String> iterator() {

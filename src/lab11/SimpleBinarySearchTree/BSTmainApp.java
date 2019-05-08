@@ -42,17 +42,14 @@ public class BSTmainApp {
          System.out.println(names.contains("Sarah"));
          System.out.println(names.get("Sarah"));
  
- 
          // Traversal methods: preorder inorder and postorder traversal
          names.preOrder();
-         
          
          // use of iterator method to retrieve an iterator on BST data
          Iterator<String> it = names.iterator();
          while (it.hasNext()) {
              System.out.println( it.next() + ",");
          }
-
         
          // Problem 1)    Complete the three traversal methods inOrder, preOrder and postOrder (see handout)
          System.out.print("inOrder: " );

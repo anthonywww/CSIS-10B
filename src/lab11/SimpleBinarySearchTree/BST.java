@@ -164,44 +164,45 @@ public class BST {
 	}
 	
 	public int height() {
-		return heightAux(0, root);
+		return heightAux(root);
 	}
 	
 	// Must be post-order
-	// FIXME: one higher than should be
-	private int heightAux(int count, TreeNode subTree) {
+	private int heightAux(TreeNode subTree) {
 		if (subTree == null) {
 			return 0;
 		}
-		int left = countAux(count, subTree.left);
-		int right = countAux(count, subTree.right);
+		int left = heightAux(subTree.left);
+		int right = heightAux(subTree.right);
 		return Math.max(left, right) + 1;
 	}
 	
 	public BST copy() {
-		BST copy = new BST();
-		copyAux(copy, root);
-		return copy;
+		BST newBST = new BST();
+		copyAux(newBST, root);
+		return newBST;
 	}
 	
 	// Must be pre-order
 	// FIXME: not copying properly
-	public BST copyAux(BST copy, TreeNode subTree) {
+	public BST copyAux(BST newBST, TreeNode subTree) {
 		if (subTree == null) {
 			return null;
 		}
 		
 		TreeNode newNode = new TreeNode(new String(subTree.data));
+		
 		// using String copy constructor to duplicate a string
-		copy.add(newNode.data);
-		copy.add(subTree.left.data);
-		copy.add(subTree.right.data);
+		
+		newBST.add(subTree.data);
+		newBST.add(subTree.left.data);
+		newBST.add(subTree.right.data);
 		
 		// Remove this
-		copy = copyAux(copy, newNode);
+		//newBST = copyAux(newBST, newNode);
 		
 		//return copy;
-		return copy;
+		return newBST;
 	}
 	
 	public Iterator<String> iterator() {

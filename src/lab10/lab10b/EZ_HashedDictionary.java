@@ -59,7 +59,7 @@ public class EZ_HashedDictionary {
 	 */
 	public char remove(String key) {
 		char value = getValue(key);
-
+		
 		return '\0';
 	}
 

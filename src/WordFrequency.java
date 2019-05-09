@@ -54,8 +54,6 @@ public class WordFrequency {
 		SortType st = SortType.ASCENDING_KEYS;
 		EZ_SortedDictionary<String, Integer> sortedDictionary = new EZ_SortedDictionary<String, Integer>(SortType.ASCENDING_KEYS);
 		
-		
-		
 		// print the word frequency counts
 		Iterator<String> keys = wordTable.getKeyIterator();
 		Entry[] entries = new Entry[wordTable.getSize()];
@@ -73,6 +71,7 @@ public class WordFrequency {
 		}
 		
 	}
+	
 	
 	private static class Entry implements Comparable<Entry> {
 		private String name;
@@ -101,5 +100,6 @@ public class WordFrequency {
 			return 0;
 		}
 	}
+	
 	
 }

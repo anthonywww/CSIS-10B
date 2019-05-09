@@ -131,20 +131,15 @@ class ExprTree {
 	// Recursive partner of the build() method.
 	// Recursively builds a subtree and returns reference to its root
 	private TreeNode buildSub(StringTokenizer expression) {
-		
 		TreeNode temp = null;
-		
 		if (expression.hasMoreTokens()) {
 			char token = expression.nextToken().charAt(0);
-			
 			temp = new TreeNode(token, null, null);
 			
 			if (!Character.isDigit(token)) {
 				temp.left = buildSub(expression);
 				temp.right = buildSub(expression);
 			}
-			
-			return temp;
 		}
 		// define TreeNode temp and set to null
 		// if there is another token in the expression

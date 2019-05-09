@@ -96,7 +96,7 @@ public class BSTmainApp {
          
 
          // It might be useful to use a isLeaf(TreeNode st) method.
-		/*************************** Problem 5 trimLeaves  method **************** 
+		//*************************** Problem 5 trimLeaves  method **************** 
         // write and test a trimLeaves method that removes the leaves of a binary search tree
         //    use a recursive approach
  
@@ -123,7 +123,7 @@ public class BSTmainApp {
         
         tree = new BST();
         tree.add("m");  tree.add("g");  tree.add("t");  tree.add("d"); tree.add("j"); tree.add("q"); tree.add("v");
-        tree.add("b");  tree.add("h");  tree.add("o");  tree.add("r"); tree.add("v"); 
+        tree.add("b");  tree.add("h");  tree.add("o");  tree.add("r");
         tree.add("p");  tree.add("s");
         
         System.out.println("\nc) tree before = " ); 

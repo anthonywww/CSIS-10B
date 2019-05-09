@@ -224,6 +224,26 @@ public class BST {
 		}
 	}
 
+	public void trimLeaves() {
+		trimLeavesAux(root);
+	}
+	
+	private TreeNode trimLeavesAux(TreeNode node) {
+		if (node == null) {
+			return null;
+		}
+		
+		if (!node.isLeaf()) {
+			// FIXME: if left is a leaf, set left to null, else trimleavesagain
+			node = new TreeNode(node.data);
+			node.left = trimLeavesAux(node.left);
+			node.right = trimLeavesAux(node.right);
+			return node;
+		}
+		
+		return null;
+	}
+	
 	private class TreeNode {
 		public String data;
 		public TreeNode left, right;
@@ -250,6 +270,10 @@ public class BST {
 			}
 			
 			return result;
+		}
+		
+		public boolean isLeaf() {
+			return left == null && right == null;
 		}
 	}
 

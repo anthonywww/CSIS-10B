@@ -108,7 +108,7 @@ public class BSTmainApp {
 
         System.out.println("\na) tree before = " ); 
         tree.graph();
-		//tree.trimLeaves();
+		tree.trimLeaves();
         System.out.println("After trimLeaves() tree = ");
         tree.graph();
 
@@ -117,7 +117,7 @@ public class BSTmainApp {
         
         System.out.println("\nb) tree before = " ); 
         tree.graph();
-		//tree.trimLeaves();
+		tree.trimLeaves();
         System.out.println("After trimLeaves() tree = (should be empty tree)");
         tree.graph();
         
@@ -128,7 +128,7 @@ public class BSTmainApp {
         
         System.out.println("\nc) tree before = " ); 
         tree.graph();
-		//tree.trimLeaves();
+		tree.trimLeaves();
         System.out.println("After trimLeaves() tree = ");
         tree.graph();        
 	    //*************************** END Problem 5 ***********************************/      

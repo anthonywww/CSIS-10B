@@ -32,25 +32,6 @@ class ExprTree {
 		root = buildSub(expression);
 	}
 	
-	private void inOrderAux(TreeNode subTree) { // left, node, right
-		if (subTree == null) {
-			return;
-		}
-		preOrderAux(subTree.left);
-		System.out.print(subTree.element + " ");
-		preOrderAux(subTree.right);
-	}
-	
-	private void preOrderAux(TreeNode subTree) { // node, left, right
-		if (subTree == null) {
-			return;
-		}
-		System.out.print(subTree.element + " ");
-		preOrderAux(subTree.left);
-		preOrderAux(subTree.right);
-	}
-	
-	
 	// Output expression in infix form
 	public void expression() {
 		expressionSub(root);
@@ -187,17 +168,15 @@ class ExprTree {
 
 	// Facilitator class for the ExprTree and LogiTree class
 	private class TreeNode {
-		// Data members
-		public Character element; // Expression tree element
-		public TreeNode left, // Reference to the left child
-				right; // Reference to the right child
-
-		// Default Constructor
+		
+		public Character element;
+		public TreeNode left, right;
+		
+		@SuppressWarnings("unused")
 		public TreeNode() {
 			this(null, null, null);
 		}
 
-		// Explicit Constructor
 		public TreeNode(Character elem, TreeNode leftPtr, TreeNode rightPtr) {
 			this.element = elem;
 			this.left = leftPtr;

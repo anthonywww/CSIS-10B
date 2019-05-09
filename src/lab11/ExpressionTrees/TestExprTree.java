@@ -17,7 +17,6 @@ class TestExprTree {
 		Scanner keyboard = new Scanner(System.in);
 		ExprTree testExpression = new ExprTree(); // Test expression
 		ExprTree assignExpression = new ExprTree(); // Test copying ExprTree
-
 		
 		System.out.println();
 		System.out.print("Enter an expression in prefix form: ");

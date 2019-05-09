@@ -150,17 +150,15 @@ public class BST {
 	
 	
 	public int count() {
-		return countAux(0, root);
+		return countAux(root);
 	}
 	
-	private int countAux(int count, TreeNode subTree) {
+	private int countAux(TreeNode subTree) {
 		if (subTree == null) {
 			return 0;
 		}
 		
-		count += countAux(count, subTree.left) + countAux(count, subTree.right);
-		
-		return count+1;
+		return 1 + countAux(subTree.left) + countAux(subTree.right);
 	}
 	
 	public int height() {

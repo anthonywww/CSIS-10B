@@ -95,6 +95,7 @@ public class BSTmainApp {
          names2.graph();        
          
 
+         // It might be useful to use a isLeaf(TreeNode st) method.
 		/*************************** Problem 5 trimLeaves  method **************** 
         // write and test a trimLeaves method that removes the leaves of a binary search tree
         //    use a recursive approach

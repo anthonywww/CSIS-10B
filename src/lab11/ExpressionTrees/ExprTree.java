@@ -38,18 +38,17 @@ class ExprTree {
 	}
 	
 	private void expressionSub(TreeNode node) {
-		if (node != null) {
-			if (node.left != null && node.right != null) {
-				System.out.print("(");
-			}
-			
-			expressionSub(node.left);
-			System.out.print(node.element);
-			expressionSub(node.right);
-			
-			if (node.left != null && node.right != null) {
-				System.out.print(")");
-			}
+		if (node == null) {
+			return;
+		}
+		if (node.left != null && node.right != null) {
+			System.out.print("(");
+		}
+		expressionSub(node.left);
+		System.out.print(node.element);
+		expressionSub(node.right);
+		if (node.left != null && node.right != null) {
+			System.out.print(")");
 		}
 	}
 

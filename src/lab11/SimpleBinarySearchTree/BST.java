@@ -182,24 +182,14 @@ public class BST {
 	}
 	
 	// Must be pre-order
-	// FIXME: not copying properly
 	public BST copyAux(BST newBST, TreeNode subTree) {
 		if (subTree == null) {
-			return null;
+			return newBST;
 		}
+		newBST.add(new String(subTree.data));
+		copyAux(newBST, subTree.left);
+		copyAux(newBST, subTree.right);
 		
-		TreeNode newNode = new TreeNode(new String(subTree.data));
-		
-		// using String copy constructor to duplicate a string
-		
-		newBST.add(subTree.data);
-		newBST.add(subTree.left.data);
-		newBST.add(subTree.right.data);
-		
-		// Remove this
-		//newBST = copyAux(newBST, newNode);
-		
-		//return copy;
 		return newBST;
 	}
 	

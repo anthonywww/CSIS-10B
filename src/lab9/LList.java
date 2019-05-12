@@ -1,19 +1,24 @@
 package lab9;
 
+import java.util.Iterator;
+
 /**
  * A linked implementation of the ADT list.
  * 
  * @author Frank M. Carrano
  * @version 3.0
  */
-public class LList<T> {
+public class LList<T> implements Iterable<T> {
+	
 	private Node firstNode; // reference to first node
 	private int mySize;
-
+	private Iterator<T> iterator;
+	
 	public LList() {
 		firstNode = null;
 		mySize = 0;
-	} // end default constructor
+		iterator = new IteratorLList();
+	}
 
 	public boolean isEmpty() {
 		boolean result;
@@ -176,6 +181,7 @@ public class LList<T> {
 		return result;
 	}
 
+	@Override
 	public String toString() {
 		String result = "[";
 		Node currentNode = firstNode;
@@ -190,7 +196,7 @@ public class LList<T> {
 		}
 		return result;
 	}
-
+	
 	private class Node {
 		private T data; // entry in list
 		private Node next; // link to next node
@@ -209,10 +215,6 @@ public class LList<T> {
 			return data;
 		}
 
-		private void setData(T newData) {
-			data = newData;
-		}
-
 		private Node getNextNode() {
 			return next;
 		}
@@ -220,5 +222,33 @@ public class LList<T> {
 		private void setNextNode(Node nextNode) {
 			next = nextNode;
 		}
+	}
+
+	private class IteratorLList implements Iterator<T> {
+		
+		private int iteratorPos;
+		
+		public IteratorLList() {
+			iteratorPos = 0;
+		}
+
+		@Override
+		public boolean hasNext() {
+			if (getEntry(iteratorPos+1) != null) {
+				return true;
+			}
+			return false;
+		}
+
+		@Override
+		public T next() {
+			return getEntry(++iteratorPos);
+		}
+		
+	}
+	
+	@Override
+	public Iterator<T> iterator() {
+		return iterator;
 	}
 }

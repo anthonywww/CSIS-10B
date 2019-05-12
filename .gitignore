@@ -11,6 +11,7 @@ config.conf
 ### IDE Files ###
 
 # Eclipse
+.classpath
 .project
 .settings/
 .metadata

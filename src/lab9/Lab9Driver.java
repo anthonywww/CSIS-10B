@@ -209,7 +209,7 @@ public class Lab9Driver {
 		// *************
 		// then move on to number 6
 
-		// Ok Tom.
+		// ok
 
 		/******************** end *****************************************/
 
@@ -221,19 +221,22 @@ public class Lab9Driver {
 		int[] targets = { 8, 2, 9, 17 };
 
 		Arrays.sort(targets);
-
-		for (int target : targets) {
-			
-		}
 		
 		// use Arrays.binarySearch to find the min and max cell numbers that
 		// contain the range of values stored in target
+		
+		for (int target : targets) {
+			int value = Arrays.binarySearch(targets, target);
+			System.out.println(value);
+		}
 
 		/******************** end *****************************************/
 
 		/********
 		 * 7 Add an iterator class to the LList class. Test it using the code in step 1
 		 */
-
+		
+		// ok
+		
 	}
 }

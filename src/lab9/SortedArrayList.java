@@ -4,12 +4,16 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class SortedArrayList<T extends Comparable<? super T>> extends ArrayList<T> {
+	
+	private static final long serialVersionUID = 1L;
+
 	public SortedArrayList() {
 		super();
 	}
 	
 	@Override
 	public boolean add(T entry) {
+		
 		if (isEmpty()) {
 			super.add(entry);
 			return true;
@@ -61,6 +65,16 @@ public class SortedArrayList<T extends Comparable<? super T>> extends ArrayList<
 		}
 		
 		return true;
+	}
+	
+	public boolean removeAll(T entry) {
+		boolean removed = false;
+		while (getPosition(entry) != -1) {
+			if (remove(entry)) {
+				removed = true;
+			}
+		}
+		return removed;
 	}
 	
 	public int getPosition(T entry) {

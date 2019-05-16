@@ -154,6 +154,10 @@ public class MaxHeap<T extends Comparable<? super T>> {
 	public void writeLevels() {
 		// print first row, second row, third row ...
 		
+		for (int i=0; i<=lastIndex; i++) {
+			// TODO: figure out when to print a new line at the right index
+			System.out.printf("%s ", heap[i]);
+		}
 	}
 
 	@Override

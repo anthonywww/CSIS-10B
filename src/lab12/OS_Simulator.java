@@ -21,8 +21,9 @@ import java.util.Scanner;
 class OS_Simulator {
 	
 	public static void main (String args[]) {
-        PriorityQueue<Job> taskPQ = new PriorityQueue<Job>( );  // Priority queue of tasks
-        HeapData task;                      // Task
+        PriorityQueue<Job> taskPQ = new PriorityQueue<Job>( ); // Priority queue of tasks
+        
+        Job task;                           // Task
         int simLength,                      // Length of simulation (minutes)
             minute,                         // Current minute
             timeArrived,                    // Time task arrived
@@ -33,10 +34,7 @@ class OS_Simulator {
             maxWait1 = 0,                   // Longest wait for priority 1 
             j;                              // Loop counter
 
-        Random rand                  // Initialize random number generator
-            = new Random(System.currentTimeMillis());   // seed is clocktime
-                                                        // to reduce sequence
-                                                        // repetition
+        Random rand = new Random(System.currentTimeMillis());
         Scanner keyboard = new Scanner(System.in);                                                      
         //-----------------------------------------------------------------
         // Read in the number of priority levels

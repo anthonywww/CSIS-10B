@@ -1,50 +1,47 @@
 package lab6.lab6b;
 
-/** 
-   A driver that demonstrates the class AList.
-   
-   @author Frank M. Carrano, modified by Tom Rebold
-   @version 3.0
-*/
-public class Lab6b
-{
-    public static void main(String[] args) 
-    {
-        System.out.println("\f");    
-        
-        //******************** Problem 1 add and getEntry method **********************
-        System.out.println("****************  Problem 1 *********************\n");
-        LinkedList<String> myList = new LinkedList<String>();
+/**
+ * A driver that demonstrates the class AList.
+ * 
+ * @author Frank M. Carrano, modified by Tom Rebold
+ * @version 3.0
+ */
+public class Lab6b {
+	public static void main(String[] args) {
 
-        System.out.println("Testing add to end: Add 15, 25, 35, 45");
-          myList.add("15");
-          myList.add("25");
-          myList.add("35");
-          myList.add("45");
-      
-        System.out.println("\n\nmyList should contain\n15 25 35 45 ");
-        System.out.println("mylist actually contains: " + myList);
-        
-        System.out.println("using getEntry to display the items in myList");
-        displayList(myList);  // uses getEntry
-        
-        System.out.println("\nIs List empty? " + myList.isEmpty());
+		// ******************** Problem 1 add and getEntry method **********************
+		System.out.println("****************  Problem 1 *********************\n");
+		LinkedList<String> myList = new LinkedList<String>();
 
-        System.out.println("Add more entries to end: Add 55, 65, 75, 85, 95");
-        myList.add("55");
-        myList.add("65");
-        myList.add("75");
-        myList.add("85");
-        myList.add("95");
-        
-        System.out.println("\n\nIs List empty? " + myList.isEmpty());
+		System.out.println("Testing add to end: Add 15, 25, 35, 45");
+		myList.add("15");
+		myList.add("25");
+		myList.add("35");
+		myList.add("45");
 
-        System.out.println("-------------------------\n");
-        System.out.println("\n\nList should contain 15 25 35 45 55 65 75 85 95");
-        displayList(myList);
+		System.out.println("\n\nmyList should contain\n15 25 35 45 ");
+		System.out.println("mylist actually contains: " + myList);
+
+		System.out.println("using getEntry to display the items in myList");
+		displayList(myList); // uses getEntry
+
+		System.out.println("\nIs List empty? " + myList.isEmpty());
+
+		System.out.println("Add more entries to end: Add 55, 65, 75, 85, 95");
+		myList.add("55");
+		myList.add("65");
+		myList.add("75");
+		myList.add("85");
+		myList.add("95");
+
+		System.out.println("\n\nIs List empty? " + myList.isEmpty());
+
+		System.out.println("-------------------------\n");
+		System.out.println("\n\nList should contain 15 25 35 45 55 65 75 85 95");
+		displayList(myList);
         
         //*************************** END Problem 1 ***********************************/
-        /*************************** Problem 2 add at position **************** 
+        //*************************** Problem 2 add at position **************** 
         System.out.println("\n\n****************  Problem 2 *********************\n");
         System.out.println("Testing clear() ");
         myList.clear();
@@ -79,7 +76,7 @@ public class Lab6b
         
         System.out.println("Is List empty? " + myList.isEmpty());
         //*************************** END Problem 2 ***********************************/
-        /*************************** Problem 3 remove, replace **************** 
+        //*************************** Problem 3 remove, replace **************** 
         System.out.println("\n\n****************  Problem 3 *********************\n");
             
         System.out.println("\n-------------------------\n");
@@ -122,7 +119,7 @@ public class Lab6b
         System.out.println("List contains 4  returns : " + myList.contains("4"));
         System.out.println("List contains 12 returns : " + myList.contains("12"));
         //*************************** END Problem 3 ***********************************/
-        /*************************** Problem 4 getPosition, moveToEnd ********************** 
+        //*************************** Problem 4 getPosition, moveToEnd ********************** 
         System.out.println("\n\n****************  Problem 4 *********************\n");
         
         System.out.println("The position of 92 is " + myList.getPosition("92") + "(should be 1)");         
@@ -138,18 +135,19 @@ public class Lab6b
         System.out.println("The number 50 should be at the end");
         displayList(myList);
         //*************************** END Problem 4 ***********************************/     
-    } // end testStringList
+    }
 
-    public static void displayList(LinkedList<String> list)
-    {
-      int numberOfEntries = list.getLength();
-      
-      System.out.println("\nThe list contains " + numberOfEntries +
-                         " entries, as follows:");
-      for (int position = 1; position <= numberOfEntries; position++)
-        System.out.println(list.getEntry(position) + 
-                           " is entry " + position);
-      System.out.println();
-    } // end displayList
-}  // end Driver
+    // TODO: Frank, your excessive comments are not constructive or beneficial at all.
+	public static void displayList(LinkedList<String> list) {
+		int numberOfEntries = list.getLength();
+
+		System.out.println("\nThe list contains " + numberOfEntries + " entries, as follows:");
+		
+		for (int position = 1; position <= numberOfEntries; position++) {
+			System.out.println(list.getEntry(position) + " is entry " + position);
+		}
+		
+		System.out.println();
+	}
+}
 

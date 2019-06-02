@@ -7,29 +7,34 @@ package lab6.lab6a;
  * @author Frank M. Carrano
  * @version 3.0
  */
-public class LinkedBag {
-	
-	private Node firstNode; // reference to first node
+public class LinkedBag<T> implements BagInterface<T> {
+
+	private Node root;
 	private int numberOfEntries;
 
 	public LinkedBag() {
-		
+		root = null;
+		numberOfEntries = 0;
 	}
 
 	// Exercise 1 -------------------------
-	public LinkedBag(Object[] items, int numberOfItems) {
-
+	public LinkedBag(T[] items) {
+		for (T object : items) {
+			add(object);
+		}
 	}
 
 	/**
 	 * Adds a new entry to this bag.
 	 * 
-	 * @param newEntry
-	 *            the object to be added as a new entry
+	 * @param object the object to be added as a new entry
 	 * @return true
 	 */
-	public boolean add(Object newEntry) // OutOfMemoryError possible
-	{
+	public boolean add(T object) {
+		Node node = new Node(object);
+		node.next = root;
+		root = node;
+		numberOfEntries++;
 		return true;
 	}
 
@@ -39,7 +44,7 @@ public class LinkedBag {
 	 * @return true if the bag is empty, or false if not
 	 */
 	public boolean isEmpty() {
-		return false;
+		return numberOfEntries == 0;
 	}
 
 	/**
@@ -47,7 +52,7 @@ public class LinkedBag {
 	 * 
 	 * @return false
 	 */
-	public boolean isFull() {
+	public boolean isFull() { // Assumed an infinite size bag by instructor.
 		return false;
 	}
 
@@ -57,29 +62,37 @@ public class LinkedBag {
 	 * @return the integer number of entries currently in the bag
 	 */
 	public int getCurrentSize() {
-		return 0;
+		return numberOfEntries;
 	}
 
 	/**
 	 * Counts the number of times a given entry appears in this bag.
 	 * 
-	 * @param anEntry
-	 *            the entry to be counted
+	 * @param anEntry the entry to be counted
 	 * @return the number of times anEntry appears in the bag
 	 */
 	public int getFrequencyOf(Object anEntry) {
-		return 0;
+		int frequency = 0;
+		Node node = root;
+		while (node != null) {
+			if (node.data.equals(anEntry)) {
+				frequency++;
+			}
+			node = node.next;
+		}
+		return frequency;
 	}
 
 	/**
 	 * Tests whether this bag contains a given entry.
 	 * 
-	 * @param anEntry
-	 *            the entry to locate
+	 * @param anEntry the entry to locate
 	 * @return true if the bag contains anEntry, or false otherwise
 	 */
 	public boolean contains(Object anEntry) {
-		return false;
+		// This can be O(log(n)) if we just used a loop instead of calling
+		// getFrequencyOf, which is O(n).
+		return getFrequencyOf(anEntry) > 0;
 	}
 
 	/**
@@ -87,30 +100,52 @@ public class LinkedBag {
 	 * 
 	 * @return either the removed entry, if the removal was successful, or null
 	 */
-	public Object remove() {
-		return null;
+	public T remove() {
+		T result = null;
+		Node node = root;
+		while (node != null && node.next != null) {
+			node.next = node.next.next;
+			node = node.next;
+			numberOfEntries--;
+		}
+		return result;
 	}
 
 	/**
 	 * Removes one occurrence of a given entry from this bag, if possible.
 	 * 
-	 * @param anEntry
-	 *            the entry to be removed
+	 * @param anEntry the entry to be removed
 	 * @return true if the removal was successful, or false otherwise
 	 */
 	public boolean remove(Object anEntry) {
-		return false;
+		boolean result = false;
+		Node currentNode = findNode(anEntry);
+
+		if (currentNode != null) {
+			currentNode.data = root.data;
+			remove();
+			result = true;
+		}
+
+		return result;
+	}
+
+	private Node findNode(Object entry) {
+		Node node = root;
+		while (node != null) {
+			if (entry.equals(node.data)) {
+				return node;
+			}
+			node = node.next;
+		}
+		return root;
 	}
 
 	/** Removes all entries from this bag. */
 	public void clear() {
+		root = null;
+		numberOfEntries = 0;
 	}
-
-	// public BagInterface<T> union(BagInterface<T> anotherBag)
-	// {
-	//
-	//
-	// }
 
 	/**
 	 * Retrieves all entries that are in this bag.
@@ -118,23 +153,57 @@ public class LinkedBag {
 	 * @return a newly allocated array of all the entries in the bag
 	 */
 	public Object[] toArray() {
-
-		return null;
+		Object[] result = new Object[numberOfEntries];
+		Node currentNode = root;
+		for (int i = 0; i < numberOfEntries; i++) {
+			result[i] = currentNode.data;
+			currentNode = currentNode.next;
+		}
+		return result;
 	}
 
+	@SuppressWarnings("unchecked")
+	public BagInterface<T> union(BagInterface<T> anotherBag) {
+		T[] temp = (T[]) anotherBag.toArray();
+		BagInterface<T> result = new LinkedBag<T>(temp);
+		Node currentNode = root;
+		while (currentNode != null) {
+			result.add(currentNode.data);
+			currentNode = currentNode.next;
+		}
+		return result;
+	}
+
+	@Override
 	public String toString() {
-		return "";
+		StringBuilder sb = new StringBuilder();
+		Node node = root;
+		int count = 0;
+		sb.append('[');
+		while (node != null) {
+
+			sb.append(node.data);
+
+			if (count < numberOfEntries - 1) {
+				sb.append(", ");
+			}
+
+			node = node.next;
+			count++;
+		}
+
+		return sb.append(']').toString();
 	}
 
 	private class Node {
-		public Object data; // entry in bag
-		public Node next; // link to next node
+		public T data;
+		public Node next;
 
-		private Node(Object dataPortion) {
+		private Node(T dataPortion) {
 			this(dataPortion, null);
 		}
 
-		private Node(Object dataPortion, Node nextNode) {
+		private Node(T dataPortion, Node nextNode) {
 			data = dataPortion;
 			next = nextNode;
 		}

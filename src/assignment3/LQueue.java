@@ -10,53 +10,74 @@ public class LQueue {
 
 	private Node front; // reference to the front node of the queue (the next to be dequeued)
 	private Node back; // reference to the back node of the queue (the last item that was added)
+	private int size;
 
-	// Define Constructor here
+	public LQueue() {
+		front = null;
+		back = null;
+		size = 0;
+	}
 
 	public void enqueue(Object value) {
+		Node node = new Node(value, null);
+		if (front == null && back == null) {
+			front = node;
+			back = node;
+		} else {
+			back.next = node;
+			back = back.next;
+		}
+		size++;
 	}
-	// post: the value is added to the tail of the structure
 
 	public Object dequeue() {
-		return null;
+		if (front == null) {
+			return null;
+		}
+		Node removed = front;
+		if (front.next != null) {
+			front = front.next;
+		} else {
+			front = null;
+			back = null;
+		}
+		size--;
+		return removed.element;
 	}
-	// pre: the queue is not empty
-	// post: the head of the queue is removed and returned
 
 	public Object getFront() {
-		return null;
+		return front.element;
 	}
-	// pre: the queue is not empty
-	// post: the element at the head of the queue is returned
 
 	public boolean isEmpty() {
-		return true;
+		return front == null && back == null;
 	}
-	// post: returns true if and only if the queue is empty
 
 	public int size() {
-		return 0;
+		return size;
 	}
-	// post: returns the number of elements in the queue
 
+	@Override
 	public String toString() {
-		return "";
+		String result = "";
+		Node current = front;
+		while (current != null) {
+			result = result + "" + current.element;
+			current = current.next;
+		}
+		return result;
 	}
 
 	private class Node {
-		// Data members
-		public Object element; // Queue element
-		public Node next; // Pointer to the next element
+		public Object element;
+		public Node next;
 
 		// because there are no access labels (public, private or protected),
 		// access is limited to the package where these methods are declared
 
-		// Constructor
 		Node(Object elem, Node nextPtr) {
 			element = elem;
 			next = nextPtr;
 		}
-
 	}
-
 }

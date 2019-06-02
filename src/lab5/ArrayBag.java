@@ -2,11 +2,13 @@ package lab5;
 
 import java.util.Arrays;
 
+import lab6.lab6a.BagInterface;
+
 /**
  * A class of bags whose entries are stored in a fixed-size array.
  * @param <T>
  */
-public class ArrayBag<T> {
+public class ArrayBag<T> implements BagInterface<T> {
 
 	private T[] myArray;
 	private static final int DEFAULT_CAPACITY = 25;
@@ -110,9 +112,9 @@ public class ArrayBag<T> {
 	 * 
 	 * @return either the removed entry, if the removal was successful, or null
 	 */
-	public Object remove() {
+	public T remove() {
 		if (!isEmpty()) {
-			Object o = myArray[mySize - 1];
+			T o = myArray[mySize - 1];
 			myArray[mySize - 1] = null;
 			mySize--;
 			return o;
@@ -173,6 +175,11 @@ public class ArrayBag<T> {
 			}
 		}
 		return result + "]";
+	}
+
+	@Override
+	public BagInterface<T> union(BagInterface<T> anotherBag) {
+		return null;
 	}
 
 }

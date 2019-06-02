@@ -124,16 +124,15 @@ public class RadarTest extends JFrame implements KeyListener {
 		g.setColor(Color.CYAN);
 		int facingDX = (int) ((radarRadius-20) * -Math.cos(Math.toRadians(yaw + 90))) + radarWidth;
 		int facingDY = (int) ((radarRadius-20) * -Math.sin(Math.toRadians(yaw + 90))) + radarHeight;
-		//g.drawLine(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2, facingDX, facingDY);
 		drawDashedLine(g, SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2, facingDX, facingDY);
 
 		// Draw entities
 		g.setColor(Color.GREEN);
 		for (Entity e : entities) {
-			//double distance = Math.sqrt(Math.pow(x - e.getX(), 2) + Math.pow(z - e.getZ(), 2));
-			double distance = Math.sqrt(Math.pow(Math.max(x, e.getX()) - Math.min(x, e.getX()), 2) +
-					Math.pow(Math.max(z, e.getZ()) - Math.min(z, e.getZ()), 2));
-
+			double xdis = x - e.getX();
+			double zdis = z - e.getZ();
+			double distance = Math.sqrt((xdis * xdis) + (zdis * zdis));
+			
 			if (distance > radarRadius-20) {
 				continue;
 			}

@@ -16,7 +16,7 @@ public class BankReadFile {
 		Scanner scanner;
 		BankAccount[] bankAccount = new BankAccount[10];
 		int k = 0;
-		
+
 		try {
 			//
 			// Create a new Scanner object which will read the data
@@ -34,17 +34,36 @@ public class BankReadFile {
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}
-		
+
 		System.out.println(Arrays.toString(bankAccount));
 
 		// STEP 9 modify BankAccount so it implements Comparable<BankAccount>
 		// Then ADD Statements here to sort your array and display by account number
 		Arrays.sort(bankAccount, 0, k);
 		System.out.println(Arrays.toString(bankAccount));
-		
+
 		// Then ADD Statements to sort your array by balance
 		BankAccount.setCompareType(BankAccount.CompareType.COMPARE_BALANCE);
 		Arrays.sort(bankAccount, 0, k);
 		System.out.println(Arrays.toString(bankAccount));
 	}
+	
+	@SuppressWarnings({"unused"})
+	private static void bubbleSort(BankAccount[] bankAccount, int fromIndex, int toIndex) {
+		for (int i = fromIndex; i < toIndex; i++) {
+			for (int j = fromIndex; j < (toIndex - i - 1); j++) {
+				if (bankAccount[j].compareTo(bankAccount[j + 1]) > 0) {
+					swap(bankAccount, j, j + 1);
+				}
+			}
+		}
+	}
+
+	// Covered in lecture
+	public static void swap(BankAccount[] accounts, int position1, int position2) {
+		BankAccount temp = accounts[position1];
+		accounts[position1] = accounts[position2];
+		accounts[position2] = temp;
+	}
+
 }

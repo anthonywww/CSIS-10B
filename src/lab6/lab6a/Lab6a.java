@@ -1,5 +1,7 @@
 package lab6.lab6a;
 
+import lab5.ArrayBag;
+
 /** Lab 5 exercises -- Array based Bag, Stack, Queue and List Classes
  *  
  */
@@ -33,7 +35,7 @@ public class Lab6a
         
         
         //********** End Problem 0  *****************************************************/        
-        /********** Problem 1 test your add and toString methods  ****************
+        //********** Problem 1 test your add and toString methods  ****************
         System.out.println("\n\n**************** Problem 1 **************\n");
         
         // add some items
@@ -61,7 +63,7 @@ public class Lab6a
         System.out.println("contents of groceryBag: " + groceryBag);        
         
         //********** End Problem 1  *****************************************************/  
-        /********** Problem 2 test your getFrequencyOf method  ****************        
+        //********** Problem 2 test your getFrequencyOf method  ****************        
         System.out.println("\n\n**************** Problem 2**************\n");
         
         System.out.println("There are " + duffleBag.getFrequencyOf(new String("ball")) + " balls in duffleBag");
@@ -69,7 +71,7 @@ public class Lab6a
         
         
         //********** End Problem 2  *****************************************************/
-        /********** Problem 3 test your contains method  *****************
+        //********** Problem 3 test your contains method  *****************
         System.out.println("\n\n**************** Problem 3**************\n");
 
         System.out.println("Does duffleBag contain keys? " + duffleBag.contains(new String("keys")));
@@ -77,7 +79,7 @@ public class Lab6a
         
         
         //********** End Problem 3  *****************************************************/      
-        /********** Problem 4 Test the remove method ************** 
+        //********** Problem 4 Test the remove method ************** 
         System.out.println("\n\n**************** Problem 4**************\n");
         
         System.out.println("Removing " + duffleBag.remove() + " from duffleBag");
@@ -91,7 +93,7 @@ public class Lab6a
         System.out.println("contents of tinyBag: " + tinyBag);                    
               
         //********** End Problem 4  *****************************************************/     
-        /*************  Problem 5  Test the clear method ****************************
+        //*************  Problem 5  Test the clear method ****************************
         System.out.println("\n\n**************** Problem 5 **************\n");
 
         groceryBag.clear();
@@ -103,7 +105,7 @@ public class Lab6a
         System.out.println("contents of groceryBag: " + groceryBag);        
         
         //********** End Problem 5  *****************************************************/     
-        /*************  Problem 6  Test the remove(anEntry) method
+        //*************  Problem 6  Test the remove(anEntry) method
         System.out.println("\n\n**************** Problem 6 **************\n");
                
         duffleBag.remove(new String("cap"));
@@ -121,7 +123,7 @@ public class Lab6a
         System.out.println("contents of duffleBag: " + duffleBag);        
         
         //********** End Problem 6  *****************************************************/   
-        /*************  Problem 7 Convert LinkedBag to Generic
+        //*************  Problem 7 Convert LinkedBag to Generic
         System.out.println("\n\n**************** Problem 7 **************\n");
         
         Integer [] array = {10, 2, 4, 5};
@@ -136,7 +138,7 @@ public class Lab6a
         System.out.println("This is a good thing...just comment out the line that adds array to duffleBag");
         
         //********** End Problem 7  *****************************************************/   
-        /*************  Problem 8 Test the toArray method
+        //*************  Problem 8 Test the toArray method
         System.out.println("\n\n**************** Problem 8 **************\n");
         
         Object [] contents = duffleBag.toArray();
@@ -157,7 +159,7 @@ public class Lab6a
             System.out.println(stringContents[k].toUpperCase());        
         
         //********** End Problem 8  *****************************************************/   
-        /*************  Problem 9 Test the union method
+        //*************  Problem 9 Test the union method
         System.out.println("\n\n**************** Problem 9 **************\n");
         
         BagInterface<String> gymBag = new ArrayBag<String>();

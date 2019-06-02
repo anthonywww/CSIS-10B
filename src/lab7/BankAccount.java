@@ -11,7 +11,7 @@ import java.util.Scanner;
  * @version $Id: BankAccount.java 8 2006-08-02 19:03:11Z bailey $
  */
 public class BankAccount implements Comparable<BankAccount> {
-	
+
 	private static CompareType compareType = CompareType.COMPARE_ACCOUNT;
 	protected String account; // the account number
 	protected double balance; // the balance associated with account
@@ -85,6 +85,7 @@ public class BankAccount implements Comparable<BankAccount> {
 		balance = balance - amount;
 	}
 
+	@Override
 	public String toString() {
 		return account + ":   " + balance;
 	}
@@ -93,11 +94,11 @@ public class BankAccount implements Comparable<BankAccount> {
 		account = s.next();
 		balance = s.nextDouble();
 	}
-	
+
 	public static void setCompareType(CompareType type) {
 		compareType = type;
 	}
-	
+
 	public static CompareType getCompareType() {
 		return compareType;
 	}
@@ -111,9 +112,9 @@ public class BankAccount implements Comparable<BankAccount> {
 		}
 		return 0;
 	}
-	
+
 	public static enum CompareType {
 		COMPARE_ACCOUNT, COMPARE_BALANCE
 	}
-	
+
 }
